@@ -5,7 +5,7 @@ app.controller('portfolioController', function($scope){
             url : 'portfolio/01.html',
             thumb : 'images/thumb/01.jpg',
             date : ‘2015’,
-            name : ‘손소의프로젝트’
+            name : '프로젝트명'
         },
         {
             url : 'portfolio/01.html',
