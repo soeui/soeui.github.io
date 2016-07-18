@@ -1,13 +1,84 @@
-﻿<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>손소의</title>
-	<style>
-		html, body {margin:0;padding:0;}
-	</style>
-    </head>
-    <body>
-        <img src="images/baby.png">
-    </body>
+<!DOCTYPE html>
+<html lang="ko" ng-app="portfolioApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>S/S/E</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="data.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+</head>
+<body ng-controller="portfolioController">
+    <div class="wrap_comm">
+        <div class="head_comm">
+            <h1 class="logo">
+                <a href="index.html" class="link_logo">S/S/E</a>
+            </h1>
+            <ul class="list_nav">
+                <li class="on">
+                    <span class="link_nav">Portfolio</span>
+                </li>
+            </ul>
+        </div>
+        <div class="cont_comm">
+            <div class="group_comm">
+                <h2 class="tit_comm">Portfolio</h2>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" ng-repeat="project in portfolios">
+                            <div class="cont_slide">
+                                <div class="info_slide">
+                                    <strong class="tit_name">
+                                        <span class="txt_date">
+                                            {{project.date}}
+                                        </span>
+                                        {{project.name}}
+                                    </strong>
+                                </div>
+                                <div class="box_slide">
+                                    <a href="{{project.url}}" class="link_url" target="_blank">
+                                        <img ng-src="{{project.thumb}}" class="img_thumb" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- mobile -->
+    <div class="wrap_mobile">
+        <p class="txt_mobile">
+            <i class="fa fa-eye-slash" aria-hidden="true"></i>
+            죄송합니다.  <br>
+            이 포트폴리오는 PC에서만 제공됩니다. <br>
+            PC에서 재접속해주세요.
+        </p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.min.js"></script>
+
+    <script>
+    $(function() {
+        var swiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            slidesPerView: 'auto',
+            centeredSlides: true,
+            paginationClickable: true,
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            spaceBetween: 30
+        });
+    });
+    </script>
+</body>
 </html>
